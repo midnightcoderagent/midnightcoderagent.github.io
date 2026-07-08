@@ -1,0 +1,250 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta
+      name="description"
+      content="Midnight Coder is a local-first coding agent with explicit model control, bounded context, and GitHub-like workflows."
+    />
+    <title>Midnight Coder</title>
+    <link rel="stylesheet" href="./styles.css" />
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap topbar-inner">
+        <a class="brand" href="#top">
+          <span class="brand-mark">MC</span>
+          <span>
+            <strong>midnight-coder</strong>
+            <small>local coding agent</small>
+          </span>
+        </a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="#local-models">Local models</a>
+          <a href="#context">Context</a>
+          <a href="#install">Install</a>
+          <a href="#integration">Integration</a>
+        </nav>
+      </div>
+    </header>
+
+    <main id="top">
+      <section class="hero">
+        <div class="wrap hero-grid">
+          <div class="hero-copy">
+            <p class="eyebrow">Repository-style product page</p>
+            <h1>Midnight Coder</h1>
+            <p class="lede">
+              A local-first coding agent built for explicit control over model selection,
+              sandboxing, approvals, and conversation history. It keeps the runtime
+              close to the workspace instead of hiding it behind a thin chat shell.
+            </p>
+
+            <div class="hero-actions">
+              <a class="button primary" href="#install">Install</a>
+              <a class="button" href="#local-models">Configure a local model</a>
+            </div>
+
+            <ul class="stats" aria-label="Key facts">
+              <li><span>Local-first</span><strong>Runs in your workspace</strong></li>
+              <li><span>Model control</span><strong>Ollama, LM Studio, llama.cpp</strong></li>
+              <li><span>Context control</span><strong>Resume, fork, compact</strong></li>
+              <li><span>Interfaces</span><strong>Terminal, app-server, SDKs</strong></li>
+            </ul>
+          </div>
+
+          <figure class="hero-figure">
+            <img
+              src="./assets/splash.png"
+              alt="Midnight Coder terminal interface preview"
+              loading="eager"
+            />
+            <figcaption>
+              The product ships with a terminal-first workflow and a structured runtime
+              surface for richer clients.
+            </figcaption>
+          </figure>
+        </div>
+      </section>
+
+      <section class="band">
+        <div class="wrap grid-4">
+          <article class="feature">
+            <h2>Explicit runtime</h2>
+            <p>
+              Provider, model, sandbox, and approvals are all chosen deliberately
+              through the product's own settings and command flow.
+            </p>
+          </article>
+          <article class="feature">
+            <h2>Local model setup</h2>
+            <p>
+              Built-in support for Ollama and LM Studio, plus custom OpenAI-compatible
+              `/v1` servers and local provider entries.
+            </p>
+          </article>
+          <article class="feature">
+            <h2>Bounded context</h2>
+            <p>
+              Conversations persist as threads and turns, can be resumed or forked, and
+              can be compacted when history needs trimming.
+            </p>
+          </article>
+          <article class="feature">
+            <h2>Integration surface</h2>
+            <p>
+              The terminal workflow powers the app-server, Python SDK, TypeScript SDK,
+              and release packaging that keeps binary artifacts reproducible.
+            </p>
+          </article>
+        </div>
+      </section>
+
+      <section class="content wrap">
+        <article class="panel" id="local-models">
+          <div class="panel-head">
+            <p class="eyebrow">Local model control</p>
+            <h2>Point Midnight Coder at the model you actually want to run</h2>
+          </div>
+          <div class="panel-grid">
+            <div>
+              <p>
+                The configuration flow stays inside the product. Use the settings or
+                command flow to choose a local provider, then point it at the model you
+                want to run.
+              </p>
+              <p>
+                The repository documents built-in local flows for Ollama, LM Studio, and
+                custom llama.cpp servers, so the model stays under your control while the
+                agent still gets the metadata it needs to behave well.
+              </p>
+            </div>
+
+            <pre><code>1. Open the model settings command.
+2. Pick a local provider:
+   - Ollama
+   - LM Studio
+   - Custom /v1 server
+3. Select the model and approval mode.</code></pre>
+          </div>
+
+          <div class="callouts">
+            <div class="callout">
+              <span>Built-in local paths</span>
+              <strong>Ollama, LM Studio, llama.cpp</strong>
+            </div>
+            <div class="callout">
+              <span>Custom endpoints</span>
+              <strong>Any compatible `/v1` server</strong>
+            </div>
+            <div class="callout">
+              <span>Provider metadata</span>
+              <strong>Catalog-aware model selection</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel" id="context">
+          <div class="panel-head">
+            <p class="eyebrow">Context control</p>
+            <h2>Keep history explicit, bounded, and easy to recover</h2>
+          </div>
+          <div class="panel-grid">
+            <div>
+              <p>
+                Context is not an opaque pile of tokens. Midnight Coder stores threads and
+                turns, lets you resume a previous session, fork from an earlier state, and
+                compact history when the conversation gets long.
+              </p>
+              <p>
+                The runtime also records diagnostics in a bounded local log store. When
+                you need more visibility, you can enable a plaintext log directory for a
+                run from inside the product.
+              </p>
+            </div>
+
+            <pre><code>Thread lifecycle
+start → resume → fork → compact</code></pre>
+          </div>
+
+          <div class="timeline" aria-label="Context workflow">
+            <div>
+              <span>Thread</span>
+              <strong>Persistent conversation container</strong>
+            </div>
+            <div>
+              <span>Turn</span>
+              <strong>One run of input, reasoning, tools, and output</strong>
+            </div>
+            <div>
+              <span>Item</span>
+              <strong>Atomic history entries used to rebuild context</strong>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel" id="install">
+          <div class="panel-head">
+            <p class="eyebrow">Install</p>
+            <h2>Install once from npm</h2>
+          </div>
+          <div class="panel-grid">
+            <pre><code>npm install -g midnight-coder</code></pre>
+
+            <div class="install-notes">
+              <p>
+                Midnight Coder is published to npm for straightforward installation and
+                team-wide version pinning.
+              </p>
+              <p>
+                The terminal workflow, app-server, and SDKs all share the same workspace
+                runtime, so the same session, sandbox, and approval rules apply
+                everywhere.
+              </p>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel" id="integration">
+          <div class="panel-head">
+            <p class="eyebrow">Integration surface</p>
+            <h2>One core runtime, several interfaces</h2>
+          </div>
+          <div class="stack">
+            <div class="stack-row">
+              <div>
+                <strong>Terminal workflow</strong>
+                <p>The terminal app stays close to the workspace and exposes the agent directly.</p>
+              </div>
+              <a href="./assets/splash.png">Terminal preview</a>
+            </div>
+            <div class="stack-row">
+              <div>
+                <strong>App server</strong>
+                <p>JSON-RPC transport for rich clients, including editor integrations.</p>
+              </div>
+              <a href="https://github.com/midnightcoderagent/Midnight-Coder/blob/main/codex-rs/app-server/README.md">Protocol notes</a>
+            </div>
+            <div class="stack-row">
+              <div>
+                <strong>Python and TypeScript SDKs</strong>
+                <p>Embed the agent into scripts, services, notebooks, or application code.</p>
+              </div>
+              <a href="https://github.com/midnightcoderagent/Midnight-Coder/blob/main/sdk/python/README.md">Python</a>
+            </div>
+          </div>
+        </article>
+
+        <article class="panel wide-note">
+          <p class="eyebrow">Design intent</p>
+          <h2>GitHub-like, but tuned for an actual product brief</h2>
+          <p>
+            The layout stays compact and repository-like: restrained colors, monospace code
+            blocks, clear metadata, and direct links into the project documentation.
+          </p>
+        </article>
+      </section>
+    </main>
+  </body>
+</html>
