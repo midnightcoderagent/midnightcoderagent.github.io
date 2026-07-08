@@ -386,6 +386,27 @@ code {
   font-weight: 600;
 }
 
+.site-footer {
+  margin-top: 24px;
+  padding: 22px 0 30px;
+  border-top: 1px solid var(--border);
+  background: rgba(255, 255, 255, 0.66);
+}
+
+.site-footer-inner {
+  display: flex;
+  flex-wrap: wrap;
+  align-items: center;
+  justify-content: space-between;
+  gap: 12px 20px;
+  color: var(--muted);
+  font-size: 13px;
+}
+
+.site-footer-inner a {
+  color: var(--muted);
+}
+
 .wide-note {
   display: grid;
   gap: 8px;

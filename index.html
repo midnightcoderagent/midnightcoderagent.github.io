@@ -5,7 +5,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1" />
     <meta
       name="description"
-      content="Midnight Coder is a local-first coding agent with explicit model control, bounded context, and GitHub-like workflows."
+      content="Midnight Coder is a local-first coding agent with explicit model control, bounded context, and precise workspace workflows."
     />
     <title>Midnight Coder</title>
     <link rel="stylesheet" href="./styles.css" />
@@ -33,7 +33,7 @@
       <section class="hero">
         <div class="wrap hero-grid">
           <div class="hero-copy">
-            <p class="eyebrow">Repository-style product page</p>
+            <p class="eyebrow">Midnight Coder</p>
             <h1>Midnight Coder</h1>
             <p class="lede">
               A local-first coding agent built for explicit control over model selection,
@@ -48,7 +48,7 @@
 
             <ul class="stats" aria-label="Key facts">
               <li><span>Local-first</span><strong>Runs in your workspace</strong></li>
-              <li><span>Model control</span><strong>Ollama, LM Studio, llama.cpp</strong></li>
+              <li><span>Model control</span><strong>Provider probe + model selection</strong></li>
               <li><span>Context control</span><strong>Resume, fork, compact</strong></li>
               <li><span>Interfaces</span><strong>Terminal, app-server, SDKs</strong></li>
             </ul>
@@ -80,8 +80,9 @@
           <article class="feature">
             <h2>Local model setup</h2>
             <p>
-              Built-in support for Ollama and LM Studio, plus custom OpenAI-compatible
-              `/v1` servers and local provider entries.
+              Use <code>/provider_conf</code> to probe a local provider from an
+              <code>ip:port</code> address, detect available models, and save the
+              provider and model that were found.
             </p>
           </article>
           <article class="feature">
@@ -110,37 +111,38 @@
           <div class="panel-grid">
             <div>
               <p>
-                The configuration flow stays inside the product. Use the settings or
-                command flow to choose a local provider, then point it at the model you
-                want to run.
+                Open <code>/provider_conf</code> and enter an address like
+                <code>127.0.0.1:11434</code>.
+                Midnight Coder probes the endpoint, checks <code>/api/tags</code> and
+                <code>/v1/models</code>, and stores the detected provider and model.
               </p>
               <p>
-                The repository documents built-in local flows for Ollama, LM Studio, and
-                custom llama.cpp servers, so the model stays under your control while the
-                agent still gets the metadata it needs to behave well.
+                After that, use <code>/model</code> to pick the model exposed by the
+                server and choose the reasoning effort for the current run.
               </p>
             </div>
 
-            <pre><code>1. Open the model settings command.
-2. Pick a local provider:
-   - Ollama
-   - LM Studio
-   - Custom /v1 server
-3. Select the model and approval mode.</code></pre>
+            <pre><code>/provider_conf 127.0.0.1:11434
+
+/model
+
+The app probes the endpoint, detects available models,
+and persists the provider and model.
+Start a new chat to use the saved provider for the whole session.</code></pre>
           </div>
 
           <div class="callouts">
             <div class="callout">
-              <span>Built-in local paths</span>
-              <strong>Ollama, LM Studio, llama.cpp</strong>
+              <span>Prompt</span>
+              <strong><code>/provider_conf</code> or <code>/provider-conf</code></strong>
             </div>
             <div class="callout">
-              <span>Custom endpoints</span>
-              <strong>Any compatible `/v1` server</strong>
+              <span>Probe targets</span>
+              <strong><code>ip:port</code> or <code>http://host:port</code></strong>
             </div>
             <div class="callout">
-              <span>Provider metadata</span>
-              <strong>Catalog-aware model selection</strong>
+              <span>Detection</span>
+              <strong><code>/api/tags</code> and <code>/v1/models</code></strong>
             </div>
           </div>
         </article>
@@ -162,10 +164,19 @@
                 you need more visibility, you can enable a plaintext log directory for a
                 run from inside the product.
               </p>
+              <p>
+                Use <code>/clear</code> to start a fresh chat, <code>/new</code> to open
+                another chat during a conversation, and <code>/compact</code> when you
+                want the history trimmed.
+              </p>
             </div>
 
-            <pre><code>Thread lifecycle
-start → resume → fork → compact</code></pre>
+            <pre><code>/context
+/mini-model
+/resume-type
+/new
+/clear
+/compact</code></pre>
           </div>
 
           <div class="timeline" aria-label="Context workflow">
@@ -236,15 +247,46 @@ start → resume → fork → compact</code></pre>
           </div>
         </article>
 
-        <article class="panel wide-note">
-          <p class="eyebrow">Design intent</p>
-          <h2>GitHub-like, but tuned for an actual product brief</h2>
-          <p>
-            The layout stays compact and repository-like: restrained colors, monospace code
-            blocks, clear metadata, and direct links into the project documentation.
-          </p>
+        <article class="panel" id="support">
+          <div class="panel-head">
+            <p class="eyebrow">Support Midnight Coder</p>
+            <h2>If this project saved you time, consider backing it</h2>
+          </div>
+          <div class="panel-grid">
+            <div>
+              <p>
+                Your support helps keep Midnight Coder moving forward with new features,
+                bug fixes, documentation, and infrastructure.
+              </p>
+            </div>
+            <div>
+              <p><strong>Ways to contribute</strong></p>
+              <ul class="support-list">
+                <li>Buy Me a Coffee</li>
+                <li>Pix: 38e0af8d-9f56-45cf-8bc8-688dbea4405a</li>
+              </ul>
+              <p>
+                <a href="https://buymeacoffee.com/midnightcoder" target="_blank" rel="noreferrer">
+                  Buy Me a Coffee
+                </a>
+              </p>
+            </div>
+          </div>
         </article>
+
       </section>
     </main>
+
+    <footer class="site-footer">
+      <div class="wrap site-footer-inner">
+        <a href="https://github.com/midnightcoderagent/Midnight-Coder" target="_blank" rel="noreferrer">
+          GitHub project
+        </a>
+        <a href="https://buymeacoffee.com/midnightcoder" target="_blank" rel="noreferrer">
+          Buy Me a Coffee
+        </a>
+        <a href="mailto:midnightcoderagent@gmail.com">midnightcoderagent@gmail.com</a>
+      </div>
+    </footer>
   </body>
 </html>
