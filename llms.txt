@@ -1,0 +1,30 @@
+# Midnight Coder
+
+> Midnight Coder is a local-first AI coding agent with explicit model, context, sandbox, and approval controls.
+
+Midnight Coder runs from the developer's workspace and provides a terminal workflow, local model provider discovery, bounded conversation context, an app server, and Python and TypeScript SDK surfaces.
+
+## Core pages
+
+- [Product overview](https://midnightcoderagent.github.io/): Features, commands, installation, and project links.
+- [Local AI coding agent](https://midnightcoderagent.github.io/local-ai-coding-agent/): Definition, architecture, use cases, and tradeoffs.
+- [Ollama coding agent](https://midnightcoderagent.github.io/ollama-coding-agent/): Local provider setup and smart context sizing.
+- [Installation](https://midnightcoderagent.github.io/install-midnight-coder/): npm requirements, installation, and verification.
+- [Context management](https://midnightcoderagent.github.io/context-management/): Context windows, compaction, resume strategy, and commands.
+- [Integrations](https://midnightcoderagent.github.io/integrations/): Terminal, app server, Python SDK, and TypeScript SDK.
+- [Local LLM inference](https://midnightcoderagent.github.io/local-llm-inference/): Providers, endpoints, hardware, quantization, context, and privacy.
+- [AI coding agent security](https://midnightcoderagent.github.io/ai-coding-agent-security/): Sandbox, approvals, workspace scope, network access, and secrets.
+- [AI coding glossary](https://midnightcoderagent.github.io/ai-coding-glossary/): Definitions for AI, LLM, inference, tokens, agents, tools, context, APIs, and integrations.
+- [AI code assistant](https://midnightcoderagent.github.io/ai-code-assistant/): Completion, generation, pair programming, agents, and selection criteria.
+- [Open source coding agent](https://midnightcoderagent.github.io/open-source-coding-agent/): Local-first, self-hosted, offline, and privacy-first boundaries.
+- [Local code LLMs](https://midnightcoderagent.github.io/local-code-llms/): Provider boundaries for Ollama, GGUF, llama.cpp, Qwen Coder, and DeepSeek Coder.
+- [AI coding hardware](https://midnightcoderagent.github.io/ai-coding-hardware/): GPU inference, AMD, RX 580, low VRAM, quantization, and monitoring boundaries.
+- [Coding agent alternatives](https://midnightcoderagent.github.io/coding-agent-alternatives/): A verified framework for evaluating Midnight Coder as an alternative.
+- [Agentic coding workflow](https://midnightcoderagent.github.io/agentic-coding-workflow/): Repository tools, multi-file work, SmartContext, and compaction.
+- [AI coding for developers](https://midnightcoderagent.github.io/ai-coding-for-developers/): Python, JavaScript, TypeScript, Node.js, React, backend, full-stack, and DevOps contexts.
+- [Enterprise AI coding](https://midnightcoderagent.github.io/enterprise-ai-coding/): Technical controls, review requirements, unsupported claims, and pilot scope.
+
+## Primary source
+
+- [Source repository](https://github.com/midnightcoderagent/Midnight-Coder)
+- [npm package](https://www.npmjs.com/package/midnight-coder)

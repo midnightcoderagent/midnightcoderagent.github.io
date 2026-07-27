@@ -1,0 +1,130 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="description" content="Learn how a local AI coding agent works, what stays in your workspace, and how Midnight Coder controls models, context, sandboxing, and approvals.">
+    <meta name="author" content="Midnight Coder">
+    <meta name="theme-color" content="#0969da">
+    <link rel="canonical" href="https://midnightcoderagent.github.io/local-ai-coding-agent/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Midnight Coder">
+    <meta property="og:title" content="What Is a Local AI Coding Agent? | Midnight Coder">
+    <meta property="og:description" content="A practical guide to local AI coding agents, model control, workspace access, context, and security boundaries.">
+    <meta property="og:url" content="https://midnightcoderagent.github.io/local-ai-coding-agent/">
+    <meta property="og:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <meta property="og:image:alt" content="Midnight Coder local AI coding agent terminal">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="What Is a Local AI Coding Agent? | Midnight Coder">
+    <meta name="twitter:description" content="How local AI coding agents work and where model, context, sandbox, and approval controls fit.">
+    <meta name="twitter:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <title>What Is a Local AI Coding Agent? | Midnight Coder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "TechArticle",
+            "headline": "What Is a Local AI Coding Agent?",
+            "description": "A practical guide to local AI coding agents, model control, workspace access, context, and security boundaries.",
+            "datePublished": "2026-07-27",
+            "dateModified": "2026-07-27",
+            "mainEntityOfPage": "https://midnightcoderagent.github.io/local-ai-coding-agent/",
+            "image": "https://midnightcoderagent.github.io/assets/splash.png",
+            "author": { "@type": "Organization", "name": "Midnight Coder", "url": "https://midnightcoderagent.github.io/" }
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Midnight Coder", "item": "https://midnightcoderagent.github.io/" },
+              { "@type": "ListItem", "position": 2, "name": "Local AI coding agent", "item": "https://midnightcoderagent.github.io/local-ai-coding-agent/" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap topbar-inner">
+        <a class="brand" href="../">
+          <span class="brand-mark">MC</span>
+          <span><strong>midnight-coder</strong><small>local coding agent</small></span>
+        </a>
+        <nav class="topnav" aria-label="Primary">
+          <a href="../ollama-coding-agent/">Ollama</a>
+          <a href="../install-midnight-coder/">Install</a>
+          <a href="../context-management/">Context</a>
+          <a href="../integrations/">Integrations</a>
+        </nav>
+      </div>
+    </header>
+
+    <main class="guide-main wrap">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Home</a> / Local AI coding agent</nav>
+      <header class="guide-hero">
+        <p class="eyebrow">Local AI coding guide</p>
+        <h1>What is a local AI coding agent?</h1>
+        <p class="lede">A clear look at how local-first coding agents operate inside a developer workspace and where Midnight Coder puts control.</p>
+        <div class="answer-box">
+          <p><strong>A local AI coding agent is software that runs its agent runtime on your computer, reads and changes an authorized workspace, and uses tools to complete coding tasks.</strong> When paired with a local model provider, model inference can also remain on infrastructure you control.</p>
+        </div>
+      </header>
+
+      <div class="guide-layout">
+        <article class="guide-copy">
+          <section class="guide-section" id="how-it-works">
+            <h2>How a local coding agent works</h2>
+            <p>A coding agent combines a language model with an execution loop. The model interprets a request, the runtime supplies workspace context, and tools inspect files, run commands, or propose edits. The runtime then returns tool results to the model until the task reaches an answer.</p>
+            <p>“Local-first” describes where that runtime and its workspace operations happen. It does not automatically mean every model request is local. A remote provider can still receive model input. To keep inference local, connect Midnight Coder to a model server you operate, such as Ollama.</p>
+            <div class="fact-grid">
+              <div><strong>Runtime</strong><span>Runs close to the checked-out repository</span></div>
+              <div><strong>Inference</strong><span>Local when a local model provider is selected</span></div>
+              <div><strong>Workspace</strong><span>Bounded by sandbox and approval settings</span></div>
+              <div><strong>History</strong><span>Stored as explicit threads, turns, and items</span></div>
+            </div>
+          </section>
+
+          <section class="guide-section" id="controls">
+            <h2>What Midnight Coder controls</h2>
+            <p>Midnight Coder exposes provider selection, model choice, context limits, sandbox behavior, and approvals through its own runtime. This makes the operational boundary visible instead of treating the agent as a generic chat window.</p>
+            <ul>
+              <li><strong>Provider and model:</strong> probe a local endpoint, detect exposed models, and select one for the session.</li>
+              <li><strong>Context:</strong> define the maximum window, compact long histories, resume threads, or start fresh.</li>
+              <li><strong>Workspace access:</strong> use sandbox and approval rules to control tool actions.</li>
+              <li><strong>Interfaces:</strong> work through the terminal or build a client with the app server and SDK surfaces.</li>
+            </ul>
+          </section>
+
+          <section class="guide-section" id="use-cases">
+            <h2>When a local AI coding agent is useful</h2>
+            <p>Local agents are a strong fit when a developer wants direct model choice, predictable workspace access, offline-capable inference, or visibility into context management. Typical tasks include repository exploration, code changes, test diagnosis, refactoring, and structured automation.</p>
+            <p>The main tradeoff is operational responsibility. Local inference depends on your model, hardware, context window, and provider availability. A smaller local model may be private and inexpensive to run but less capable than a large hosted model on complex tasks.</p>
+          </section>
+
+          <section class="guide-section" id="start">
+            <h2>Start with Midnight Coder</h2>
+            <p>Install the CLI from npm, open it inside a repository, then configure either the default provider or a local model endpoint.</p>
+            <pre><code>npm install -g midnight-coder
+midnight-coder</code></pre>
+            <p>Continue with the <a href="../install-midnight-coder/">installation guide</a> or connect an <a href="../ollama-coding-agent/">Ollama coding model</a>.</p>
+            <p class="source-note">Primary source: <a href="https://github.com/midnightcoderagent/Midnight-Coder">Midnight Coder repository</a>.</p>
+          </section>
+          <section class="conversion-box"><h2>Explore the local-first agent</h2><p>See Midnight Coder's model, context, sandbox, approval, and integration surfaces.</p><a class="button primary" href="../">Explore Midnight Coder</a><a class="button" href="../install-midnight-coder/">Install</a></section>
+        </article>
+
+        <aside class="guide-nav" aria-label="On this page">
+          <strong>On this page</strong>
+          <a href="#how-it-works">How it works</a>
+          <a href="#controls">Runtime controls</a>
+          <a href="#use-cases">Use cases and tradeoffs</a>
+          <a href="#start">Get started</a>
+        </aside>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="wrap site-footer-inner"><a href="../">Midnight Coder</a><a href="../ollama-coding-agent/">Ollama guide</a><a href="https://github.com/midnightcoderagent/Midnight-Coder">Source code</a></div></footer>
+  </body>
+</html>

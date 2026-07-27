@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="description" content="Install Midnight Coder from npm, check Node.js requirements and supported packages, launch the local AI coding agent, and configure a model.">
+    <meta name="author" content="Midnight Coder">
+    <meta name="theme-color" content="#0969da">
+    <link rel="canonical" href="https://midnightcoderagent.github.io/install-midnight-coder/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Midnight Coder">
+    <meta property="og:title" content="Install Midnight Coder | Local AI Coding Agent">
+    <meta property="og:description" content="Install the Midnight Coder CLI from npm and connect your first AI model.">
+    <meta property="og:url" content="https://midnightcoderagent.github.io/install-midnight-coder/">
+    <meta property="og:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Install Midnight Coder | Local AI Coding Agent">
+    <meta name="twitter:description" content="Requirements, npm installation, launch, model setup, and troubleshooting.">
+    <meta name="twitter:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <title>Install Midnight Coder | Local AI Coding Agent</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "HowTo",
+            "name": "How to install Midnight Coder",
+            "description": "Install and launch the Midnight Coder local AI coding agent from npm.",
+            "dateModified": "2026-07-27",
+            "totalTime": "PT5M",
+            "step": [
+              { "@type": "HowToStep", "position": 1, "name": "Check Node.js", "text": "Install Node.js 16 or newer and confirm node and npm are available." },
+              { "@type": "HowToStep", "position": 2, "name": "Install the CLI", "text": "Run npm install -g midnight-coder." },
+              { "@type": "HowToStep", "position": 3, "name": "Launch in a repository", "text": "Open a project directory and run midnight-coder." },
+              { "@type": "HowToStep", "position": 4, "name": "Configure a model", "text": "Use the provider and model controls to select local or hosted inference." }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Midnight Coder", "item": "https://midnightcoderagent.github.io/" },
+              { "@type": "ListItem", "position": 2, "name": "Installation", "item": "https://midnightcoderagent.github.io/install-midnight-coder/" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="topbar"><div class="wrap topbar-inner"><a class="brand" href="../"><span class="brand-mark">MC</span><span><strong>midnight-coder</strong><small>local coding agent</small></span></a><nav class="topnav" aria-label="Primary"><a href="../local-ai-coding-agent/">Local AI agent</a><a href="../ollama-coding-agent/">Ollama</a><a href="../context-management/">Context</a><a href="../integrations/">Integrations</a></nav></div></header>
+    <main class="guide-main wrap">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Home</a> / Install Midnight Coder</nav>
+      <header class="guide-hero">
+        <p class="eyebrow">Installation guide</p>
+        <h1>Install Midnight Coder</h1>
+        <p class="lede">Install the local-first AI coding agent from npm and open your first workspace session.</p>
+        <div class="answer-box"><p><strong>Install Midnight Coder globally with npm:</strong> <code>npm install -g midnight-coder</code>. The published package requires Node.js 16 or newer.</p></div>
+      </header>
+      <div class="guide-layout">
+        <article class="guide-copy">
+          <section class="guide-section" id="requirements">
+            <h2>Requirements</h2>
+            <p>The npm package declares Node.js 16 or newer. Published package targets currently include Linux x64/ARM64, Windows x64/ARM64, and Android x64/ARM64.</p>
+            <pre><code>node --version
+npm --version</code></pre>
+          </section>
+          <section class="guide-section" id="install">
+            <h2>Install from npm</h2>
+            <pre><code>npm install -g midnight-coder</code></pre>
+            <p>The global install makes the <code>midnight-coder</code> command available in your shell. Run it from the repository you want the agent to inspect.</p>
+            <pre><code>cd /path/to/your/project
+midnight-coder</code></pre>
+          </section>
+          <section class="guide-section" id="model">
+            <h2>Connect an AI model</h2>
+            <p>For local inference, start your model server and open <code>/provider_conf</code>. Enter an endpoint such as <code>127.0.0.1:11434</code>, then use <code>/model</code> to choose a detected model.</p>
+            <p>For Ollama-specific settings, including native context sizing, follow the <a href="../ollama-coding-agent/">Ollama coding agent guide</a>.</p>
+          </section>
+          <section class="guide-section" id="troubleshooting">
+            <h2>Installation troubleshooting</h2>
+            <h3>Command not found</h3>
+            <p>Confirm the npm global binary directory is on your shell's <code>PATH</code>, then reopen the terminal.</p>
+            <h3>Provider not detected</h3>
+            <p>Confirm the provider process is running, the address is reachable from the same machine, and its model-list endpoint returns at least one model.</p>
+            <h3>Long sessions consume too much context</h3>
+            <p>Set a context limit and use compaction. The <a href="../context-management/">context management guide</a> explains the relevant commands.</p>
+            <p class="source-note">Verified against <a href="https://www.npmjs.com/package/midnight-coder">midnight-coder on npm</a> and the <a href="https://github.com/midnightcoderagent/Midnight-Coder">source repository</a>.</p>
+          </section>
+          <section class="conversion-box"><h2>Start a workspace session</h2><p>Review the core runtime before connecting a local or hosted model provider.</p><a class="button primary" href="../">Explore Midnight Coder</a><a class="button" href="../ollama-coding-agent/">Connect Ollama</a></section>
+        </article>
+        <aside class="guide-nav" aria-label="On this page"><strong>On this page</strong><a href="#requirements">Requirements</a><a href="#install">Install</a><a href="#model">Connect a model</a><a href="#troubleshooting">Troubleshooting</a></aside>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="wrap site-footer-inner"><a href="../">Midnight Coder</a><a href="../ollama-coding-agent/">Ollama guide</a><a href="https://www.npmjs.com/package/midnight-coder">npm package</a></div></footer>
+  </body>
+</html>

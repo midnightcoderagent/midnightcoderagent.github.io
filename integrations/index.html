@@ -1,0 +1,69 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="description" content="Compare Midnight Coder terminal, app-server JSON-RPC, Python SDK, and TypeScript SDK integration surfaces for AI coding workflows.">
+    <meta name="author" content="Midnight Coder">
+    <meta name="theme-color" content="#0969da">
+    <link rel="canonical" href="https://midnightcoderagent.github.io/integrations/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Midnight Coder">
+    <meta property="og:title" content="AI Coding Agent SDKs and App Server | Midnight Coder">
+    <meta property="og:description" content="Choose the terminal, JSON-RPC app server, Python SDK, or TypeScript SDK for an AI coding integration.">
+    <meta property="og:url" content="https://midnightcoderagent.github.io/integrations/">
+    <meta property="og:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Coding Agent SDKs and App Server | Midnight Coder">
+    <meta name="twitter:description" content="Integration choices for terminal, Python, TypeScript, and JSON-RPC clients.">
+    <meta name="twitter:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <title>AI Coding Agent SDKs and App Server | Midnight Coder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">
+      { "@context": "https://schema.org", "@graph": [
+        { "@type": "TechArticle", "headline": "AI Coding Agent SDKs and App Server", "datePublished": "2026-07-27", "dateModified": "2026-07-27", "mainEntityOfPage": "https://midnightcoderagent.github.io/integrations/", "author": { "@type": "Organization", "name": "Midnight Coder", "url": "https://midnightcoderagent.github.io/" } },
+        { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Midnight Coder", "item": "https://midnightcoderagent.github.io/" }, { "@type": "ListItem", "position": 2, "name": "Integrations", "item": "https://midnightcoderagent.github.io/integrations/" } ] }
+      ] }
+    </script>
+  </head>
+  <body>
+    <header class="topbar"><div class="wrap topbar-inner"><a class="brand" href="../"><span class="brand-mark">MC</span><span><strong>midnight-coder</strong><small>local coding agent</small></span></a><nav class="topnav" aria-label="Primary"><a href="../local-ai-coding-agent/">Local AI agent</a><a href="../ollama-coding-agent/">Ollama</a><a href="../install-midnight-coder/">Install</a><a href="../context-management/">Context</a></nav></div></header>
+    <main class="guide-main wrap">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Home</a> / Integrations</nav>
+      <header class="guide-hero">
+        <p class="eyebrow">Agent integration surfaces</p>
+        <h1>Build with the Midnight Coder runtime</h1>
+        <p class="lede">Choose a terminal workflow for direct use or an API surface for applications, automation, editors, and services.</p>
+        <div class="answer-box"><p><strong>Midnight Coder exposes four main interfaces:</strong> the interactive terminal, a JSON-RPC app server, a Python SDK, and a TypeScript SDK. They share the same underlying agent runtime and workspace controls.</p></div>
+      </header>
+      <div class="guide-layout">
+        <article class="guide-copy">
+          <section class="guide-section" id="choose">
+            <h2>Choose an integration surface</h2>
+            <div class="fact-grid"><div><strong>Terminal</strong><span>Interactive repository work</span></div><div><strong>App server</strong><span>Rich clients over JSON-RPC</span></div><div><strong>Python SDK</strong><span>Scripts, services, and notebooks</span></div><div><strong>TypeScript SDK</strong><span>Node.js applications and automation</span></div></div>
+          </section>
+          <section class="guide-section" id="app-server">
+            <h2>App server and JSON-RPC</h2>
+            <p>The app server exposes structured requests, responses, notifications, threads, turns, streamed items, configuration, authentication, and approval interactions. It is the appropriate surface for editor integrations or custom clients that need lifecycle control.</p>
+            <p>Clients initialize a connection, create or resume a thread, start turns, and react to server notifications. Experimental methods require explicit capability negotiation and should not be assumed stable.</p>
+          </section>
+          <section class="guide-section" id="sdks">
+            <h2>Python and TypeScript SDKs</h2>
+            <p>The Python SDK can start threads, run turns, stream progress, and control workspace access. The TypeScript SDK wraps the CLI, exchanges structured JSONL events, supports streamed runs, structured output, image inputs, and thread resume.</p>
+            <p>Use an SDK when your application needs a language-native API. Use the app server when you need the broad protocol surface or are building a standalone client.</p>
+          </section>
+          <section class="guide-section" id="security">
+            <h2>Preserve the security boundary</h2>
+            <p>An integration should expose approval requests instead of bypassing them, pass the intended working directory explicitly, and avoid sending secrets through prompts. Environment and network access should be limited to what the automation needs.</p>
+            <p>Read the <a href="../ai-coding-agent-security/">AI coding agent security guide</a> before deploying unattended workflows.</p>
+            <p class="source-note">Primary sources: <a href="https://github.com/midnightcoderagent/Midnight-Coder/blob/main/codex-rs/app-server/README.md">app-server protocol</a>, <a href="https://github.com/midnightcoderagent/Midnight-Coder/blob/main/sdk/python/README.md">Python SDK</a>, and <a href="https://github.com/midnightcoderagent/Midnight-Coder/blob/main/sdk/typescript/README.md">TypeScript SDK</a>.</p>
+          </section>
+          <section class="conversion-box"><h2>Build on the runtime</h2><p>Choose a terminal, app-server, Python, or TypeScript integration surface.</p><a class="button primary" href="../">Explore Midnight Coder</a><a class="button" href="https://github.com/midnightcoderagent/Midnight-Coder">Review source</a></section>
+        </article>
+        <aside class="guide-nav" aria-label="On this page"><strong>On this page</strong><a href="#choose">Choose an interface</a><a href="#app-server">App server</a><a href="#sdks">SDKs</a><a href="#security">Security</a></aside>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="wrap site-footer-inner"><a href="../">Midnight Coder</a><a href="../ai-coding-agent-security/">Agent security</a><a href="https://github.com/midnightcoderagent/Midnight-Coder">Source code</a></div></footer>
+  </body>
+</html>

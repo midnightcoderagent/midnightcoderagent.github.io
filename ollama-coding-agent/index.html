@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="description" content="Connect Midnight Coder to Ollama, detect local coding models, select a model, and use smart context sizing for a local AI coding workflow.">
+    <meta name="author" content="Midnight Coder">
+    <meta name="theme-color" content="#0969da">
+    <link rel="canonical" href="https://midnightcoderagent.github.io/ollama-coding-agent/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Midnight Coder">
+    <meta property="og:title" content="Use Ollama as a Coding Agent | Midnight Coder">
+    <meta property="og:description" content="Configure Ollama models in Midnight Coder and enable model-aware smart context sizing.">
+    <meta property="og:url" content="https://midnightcoderagent.github.io/ollama-coding-agent/">
+    <meta property="og:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <meta property="og:image:alt" content="Midnight Coder terminal connected to a local AI model">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Use Ollama as a Coding Agent | Midnight Coder">
+    <meta name="twitter:description" content="Connect Ollama, select a coding model, and control context from Midnight Coder.">
+    <meta name="twitter:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <title>Use Ollama as a Coding Agent | Midnight Coder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "TechArticle",
+            "headline": "Use Ollama as a Coding Agent with Midnight Coder",
+            "datePublished": "2026-07-27",
+            "dateModified": "2026-07-27",
+            "mainEntityOfPage": "https://midnightcoderagent.github.io/ollama-coding-agent/",
+            "image": "https://midnightcoderagent.github.io/assets/splash.png",
+            "author": { "@type": "Organization", "name": "Midnight Coder", "url": "https://midnightcoderagent.github.io/" }
+          },
+          {
+            "@type": "FAQPage",
+            "mainEntity": [
+              { "@type": "Question", "name": "Can Midnight Coder use Ollama?", "acceptedAnswer": { "@type": "Answer", "text": "Yes. Open /provider_conf, enter the Ollama address such as 127.0.0.1:11434, let Midnight Coder detect the models, and select one with /model." } },
+              { "@type": "Question", "name": "What does smart context do with Ollama?", "acceptedAnswer": { "@type": "Answer", "text": "Smart context uses the active model context window to send an appropriate num_ctx value to Ollama. Toggle it with /smartcontext true or false." } }
+            ]
+          },
+          {
+            "@type": "BreadcrumbList",
+            "itemListElement": [
+              { "@type": "ListItem", "position": 1, "name": "Midnight Coder", "item": "https://midnightcoderagent.github.io/" },
+              { "@type": "ListItem", "position": 2, "name": "Ollama coding agent", "item": "https://midnightcoderagent.github.io/ollama-coding-agent/" }
+            ]
+          }
+        ]
+      }
+    </script>
+  </head>
+  <body>
+    <header class="topbar">
+      <div class="wrap topbar-inner">
+        <a class="brand" href="../"><span class="brand-mark">MC</span><span><strong>midnight-coder</strong><small>local coding agent</small></span></a>
+        <nav class="topnav" aria-label="Primary"><a href="../local-ai-coding-agent/">Local AI agent</a><a href="../install-midnight-coder/">Install</a><a href="../context-management/">Context</a><a href="../integrations/">Integrations</a></nav>
+      </div>
+    </header>
+
+    <main class="guide-main wrap">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Home</a> / Ollama coding agent</nav>
+      <header class="guide-hero">
+        <p class="eyebrow">Ollama and local models</p>
+        <h1>Use Ollama as a local coding agent</h1>
+        <p class="lede">Connect Midnight Coder to an Ollama server, select the model you want, and keep context sizing aligned with that model.</p>
+        <div class="answer-box"><p><strong>Yes, Midnight Coder can use Ollama.</strong> Run Ollama, open <code>/provider_conf</code>, enter <code>127.0.0.1:11434</code>, and choose a detected model with <code>/model</code>.</p></div>
+      </header>
+
+      <div class="guide-layout">
+        <article class="guide-copy">
+          <section class="guide-section" id="connect">
+            <h2>Connect Midnight Coder to Ollama</h2>
+            <p>Make sure the Ollama service is running and has at least one model available. Midnight Coder accepts an <code>ip:port</code> value or a full HTTP URL in its provider configuration flow.</p>
+            <pre><code>/provider_conf 127.0.0.1:11434
+
+/model</code></pre>
+            <p>The provider flow probes the endpoint and checks both <code>/api/tags</code> and <code>/v1/models</code>. It stores the provider and model it detects. Start a new chat after saving the provider so the session uses that configuration consistently.</p>
+          </section>
+
+          <section class="guide-section" id="context">
+            <h2>Enable Ollama smart context</h2>
+            <p>Different local models support different context windows. Midnight Coder's smart context option reads the active model window and sends the corresponding <code>num_ctx</code> value to Ollama.</p>
+            <pre><code>/smartcontext true</code></pre>
+            <p>Disable it with <code>/smartcontext false</code>. You can also persist the setting in configuration:</p>
+            <pre><code>ollama_smart_context = true</code></pre>
+            <p>This reduces manual context tuning, but memory use still depends on the selected model, quantization, and available hardware.</p>
+          </section>
+
+          <section class="guide-section" id="choose-model">
+            <h2>Choose a local coding model</h2>
+            <p>Use <code>/model</code> to select from models exposed by the server. Model choice should match the task and machine: larger models can improve reasoning, while smaller quantized models generally start faster and require less RAM or VRAM.</p>
+            <ul>
+              <li>Confirm the model appears in Ollama before opening the provider flow.</li>
+              <li>Use a context size your hardware can sustain during long coding sessions.</li>
+              <li>Start with repository exploration before asking a new model to make broad edits.</li>
+              <li>Keep sandbox and approval settings appropriate for the workspace.</li>
+            </ul>
+          </section>
+
+          <section class="guide-section" id="faq">
+            <h2>Ollama coding agent FAQ</h2>
+            <h3>Does a local provider keep everything private?</h3>
+            <p>It keeps model inference on the provider host you configured. Other tools, integrations, or network-enabled commands can still communicate externally, so review sandbox, approval, and network settings for your environment.</p>
+            <h3>Which endpoint does Midnight Coder use?</h3>
+            <p>The setup flow probes <code>/api/tags</code> and <code>/v1/models</code>, allowing it to recognize Ollama-style and OpenAI-compatible model listings.</p>
+            <h3>How do I control a long conversation?</h3>
+            <p>Use <code>/context</code>, <code>/compact</code>, and <code>/mini-model</code>. See the complete <a href="../context-management/">AI context management guide</a>.</p>
+            <p class="source-note">Primary sources: <a href="https://github.com/midnightcoderagent/Midnight-Coder">Midnight Coder README</a> and <a href="https://github.com/ollama/ollama">Ollama source repository</a>.</p>
+          </section>
+          <section class="conversion-box"><h2>Connect Ollama to Midnight Coder</h2><p>Install the CLI, probe your provider endpoint, and select a model it exposes.</p><a class="button primary" href="../">Explore Midnight Coder</a><a class="button" href="../install-midnight-coder/">Install</a></section>
+        </article>
+
+        <aside class="guide-nav" aria-label="On this page"><strong>On this page</strong><a href="#connect">Connect Ollama</a><a href="#context">Smart context</a><a href="#choose-model">Choose a model</a><a href="#faq">FAQ</a></aside>
+      </div>
+    </main>
+
+    <footer class="site-footer"><div class="wrap site-footer-inner"><a href="../">Midnight Coder</a><a href="../local-ai-coding-agent/">Local AI agent guide</a><a href="../install-midnight-coder/">Installation</a></div></footer>
+  </body>
+</html>

@@ -45,7 +45,7 @@
             "@id": "https://midnightcoderagent.github.io/#software",
             "name": "Midnight Coder",
             "applicationCategory": "DeveloperApplication",
-            "operatingSystem": "Linux, macOS, Windows",
+            "operatingSystem": "Linux, Windows, Android",
             "description": "A local-first coding agent with explicit model selection, sandboxing, approvals, and bounded context.",
             "url": "https://midnightcoderagent.github.io/",
             "image": "https://midnightcoderagent.github.io/assets/splash.png",
@@ -75,10 +75,10 @@
           </span>
         </a>
         <nav class="topnav" aria-label="Primary">
-          <a href="#local-models">Local models</a>
-          <a href="#context">Context</a>
+          <a href="./local-ai-coding-agent/">Local AI agent</a>
+          <a href="./ollama-coding-agent/">Ollama</a>
           <a href="#install">Install</a>
-          <a href="#integration">Integration</a>
+          <a href="./integrations/">Integrations</a>
         </nav>
       </div>
     </header>
@@ -157,6 +157,99 @@
               and release packaging that keeps binary artifacts reproducible.
             </p>
           </article>
+        </div>
+      </section>
+
+      <section class="topic-hub wrap" aria-labelledby="guides-title">
+        <div class="topic-hub-head">
+          <p class="eyebrow">Guides and technical answers</p>
+          <h2 id="guides-title">Explore local AI coding workflows</h2>
+          <p>
+            Practical, source-backed guides for choosing a local coding agent,
+            connecting Ollama, managing context, and embedding the runtime.
+          </p>
+        </div>
+        <div class="topic-grid">
+          <a class="topic-card" href="./local-ai-coding-agent/">
+            <span>Overview</span>
+            <strong>What is a local AI coding agent?</strong>
+            <p>Understand the runtime, privacy boundary, model control, and workspace workflow.</p>
+          </a>
+          <a class="topic-card" href="./ollama-coding-agent/">
+            <span>Local models</span>
+            <strong>Use Midnight Coder with Ollama</strong>
+            <p>Connect a provider, select a model, and enable native smart context sizing.</p>
+          </a>
+          <a class="topic-card" href="./install-midnight-coder/">
+            <span>Getting started</span>
+            <strong>Install Midnight Coder</strong>
+            <p>Check requirements, install from npm, launch the CLI, and verify the setup.</p>
+          </a>
+          <a class="topic-card" href="./context-management/">
+            <span>Long sessions</span>
+            <strong>Manage AI coding context</strong>
+            <p>Control context windows, compaction, resume strategy, and fresh conversations.</p>
+          </a>
+          <a class="topic-card" href="./integrations/">
+            <span>Build with it</span>
+            <strong>App server and SDK integrations</strong>
+            <p>Choose between terminal, JSON-RPC, Python, and TypeScript interfaces.</p>
+          </a>
+          <a class="topic-card" href="./local-llm-inference/">
+            <span>Inference</span>
+            <strong>Run LLM inference locally</strong>
+            <p>Understand providers, endpoints, quantization, hardware, context, and privacy.</p>
+          </a>
+          <a class="topic-card" href="./ai-coding-agent-security/">
+            <span>Security</span>
+            <strong>Sandbox an AI coding agent</strong>
+            <p>Separate model decisions from enforced workspace, network, and approval controls.</p>
+          </a>
+          <a class="topic-card" href="./ai-coding-glossary/">
+            <span>Terminology</span>
+            <strong>AI coding and LLM glossary</strong>
+            <p>Definitions for agents, models, inference, tokens, context, tools, and APIs.</p>
+          </a>
+          <a class="topic-card" href="./ai-code-assistant/">
+            <span>Developer tools</span>
+            <strong>Choose an AI code assistant</strong>
+            <p>Compare completion, generation, pair programming, and agentic workflows.</p>
+          </a>
+          <a class="topic-card" href="./open-source-coding-agent/">
+            <span>Private AI</span>
+            <strong>Open source and self-hosted coding</strong>
+            <p>Separate local-first, offline, self-hosted, and privacy-first architecture.</p>
+          </a>
+          <a class="topic-card" href="./local-code-llms/">
+            <span>Code models</span>
+            <strong>Connect local code LLMs</strong>
+            <p>Understand provider boundaries for GGUF, llama.cpp, Qwen, and DeepSeek models.</p>
+          </a>
+          <a class="topic-card" href="./ai-coding-hardware/">
+            <span>Hardware</span>
+            <strong>Plan local AI on limited GPUs</strong>
+            <p>Evaluate AMD, RX 580, old-GPU, low-VRAM, and quantized-model workflows.</p>
+          </a>
+          <a class="topic-card" href="./coding-agent-alternatives/">
+            <span>Evaluation</span>
+            <strong>Compare coding-agent alternatives</strong>
+            <p>Use verified requirements without unsupported feature-parity claims.</p>
+          </a>
+          <a class="topic-card" href="./agentic-coding-workflow/">
+            <span>Agent workflow</span>
+            <strong>Run repository-level coding tasks</strong>
+            <p>Connect workspace inspection, edits, tool results, SmartContext, and compaction.</p>
+          </a>
+          <a class="topic-card" href="./ai-coding-for-developers/">
+            <span>Developer stacks</span>
+            <strong>Use AI across software stacks</strong>
+            <p>Apply the workspace runtime to Python, JavaScript, TypeScript, backend, and DevOps.</p>
+          </a>
+          <a class="topic-card" href="./enterprise-ai-coding/">
+            <span>Enterprise evaluation</span>
+            <strong>Assess controlled AI coding</strong>
+            <p>Map verified controls to security and operations requirements without overclaiming.</p>
+          </a>
         </div>
       </section>
 
@@ -340,6 +433,9 @@ Start a new chat to use the saved provider for the whole session.</code></pre>
         <a href="https://github.com/midnightcoderagent/Midnight-Coder" target="_blank" rel="noreferrer">
           GitHub project
         </a>
+        <a href="./local-ai-coding-agent/">Local AI agent guide</a>
+        <a href="./ollama-coding-agent/">Ollama guide</a>
+        <a href="./ai-coding-glossary/">AI glossary</a>
         <a href="https://buymeacoffee.com/midnightcoder" target="_blank" rel="noreferrer">
           Buy Me a Coffee
         </a>

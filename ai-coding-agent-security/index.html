@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="description" content="Learn how sandboxing, approvals, workspace scope, network access, secrets, and local inference shape AI coding agent security.">
+    <meta name="author" content="Midnight Coder">
+    <meta name="theme-color" content="#0969da">
+    <link rel="canonical" href="https://midnightcoderagent.github.io/ai-coding-agent-security/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Midnight Coder">
+    <meta property="og:title" content="AI Coding Agent Security and Sandboxing | Midnight Coder">
+    <meta property="og:description" content="A practical security model for coding agents: sandbox, approvals, workspace boundaries, network access, and local models.">
+    <meta property="og:url" content="https://midnightcoderagent.github.io/ai-coding-agent-security/">
+    <meta property="og:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Coding Agent Security and Sandboxing | Midnight Coder">
+    <meta name="twitter:description" content="Understand sandbox, approval, network, workspace, and secret boundaries for coding agents.">
+    <meta name="twitter:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <title>AI Coding Agent Security and Sandboxing | Midnight Coder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">
+      { "@context": "https://schema.org", "@graph": [
+        { "@type": "TechArticle", "headline": "AI Coding Agent Security and Sandboxing", "datePublished": "2026-07-27", "dateModified": "2026-07-27", "mainEntityOfPage": "https://midnightcoderagent.github.io/ai-coding-agent-security/", "author": { "@type": "Organization", "name": "Midnight Coder", "url": "https://midnightcoderagent.github.io/" } },
+        { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Midnight Coder", "item": "https://midnightcoderagent.github.io/" }, { "@type": "ListItem", "position": 2, "name": "AI coding agent security", "item": "https://midnightcoderagent.github.io/ai-coding-agent-security/" } ] }
+      ] }
+    </script>
+  </head>
+  <body>
+    <header class="topbar"><div class="wrap topbar-inner"><a class="brand" href="../"><span class="brand-mark">MC</span><span><strong>midnight-coder</strong><small>local coding agent</small></span></a><nav class="topnav" aria-label="Primary"><a href="../local-ai-coding-agent/">Local AI agent</a><a href="../local-llm-inference/">LLM inference</a><a href="../integrations/">Integrations</a><a href="../ai-coding-glossary/">Glossary</a></nav></div></header>
+    <main class="guide-main wrap">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Home</a> / AI coding agent security</nav>
+      <header class="guide-hero">
+        <p class="eyebrow">Sandbox and approval controls</p>
+        <h1>AI coding agent security</h1>
+        <p class="lede">Treat model intelligence and runtime permissions as separate layers, then constrain filesystem, process, network, and secret access.</p>
+        <div class="answer-box"><p><strong>A secure coding agent needs enforced runtime boundaries, not only prompt instructions.</strong> Sandboxing limits what tools can reach, while approvals pause sensitive actions for an explicit decision.</p></div>
+      </header>
+      <div class="guide-layout">
+        <article class="guide-copy">
+          <section class="guide-section" id="model">
+            <h2>Threat model for a coding agent</h2>
+            <p>A coding agent processes repository content and may execute model-selected actions. Risk can come from an incorrect model decision, malicious instructions embedded in files, unsafe dependencies, overly broad permissions, or secrets exposed through environment variables and logs.</p>
+            <p>The model should be treated as an untrusted decision-maker operating through trusted enforcement code. The runtime, not the prompt, must decide which actions are permitted.</p>
+          </section>
+          <section class="guide-section" id="controls">
+            <h2>Core security controls</h2>
+            <div class="fact-grid"><div><strong>Workspace scope</strong><span>Limit file access to intended project paths</span></div><div><strong>Sandbox</strong><span>Enforce filesystem, command, and network boundaries</span></div><div><strong>Approvals</strong><span>Require a decision for sensitive operations</span></div><div><strong>Local inference</strong><span>Keep model prompts on a controlled provider host</span></div></div>
+            <p>These controls are complementary. Local inference protects the model-data path, while a sandbox controls tools. Approval policies add human review where a static boundary cannot express intent.</p>
+          </section>
+          <section class="guide-section" id="practice">
+            <h2>Safer operating practices</h2>
+            <ul>
+              <li>Run the agent from the narrowest repository directory that contains the task.</li>
+              <li>Keep credentials out of prompts, tracked configuration, screenshots, and logs.</li>
+              <li>Review proposed commands that install software, modify system paths, or access the network.</li>
+              <li>Use version control so file changes are inspectable and recoverable.</li>
+              <li>Run relevant tests after edits and inspect the diff before deployment.</li>
+              <li>Do not grant unattended automation broader permissions than its use case requires.</li>
+            </ul>
+          </section>
+          <section class="guide-section" id="integration">
+            <h2>Security in integrations</h2>
+            <p>Custom clients should display approval requests clearly, preserve the runtime's sandbox configuration, and validate which workspace is sent when starting a thread. SDK processes should receive a minimal environment rather than every host secret by default.</p>
+            <p>For interface options, see the <a href="../integrations/">app server and SDK guide</a>. For model-data locality, see <a href="../local-llm-inference/">local LLM inference</a>.</p>
+            <p class="source-note">Primary source: <a href="https://github.com/midnightcoderagent/Midnight-Coder/blob/main/docs/sandbox.md">Midnight Coder sandbox documentation</a>.</p>
+          </section>
+          <section class="conversion-box"><h2>Review the runtime boundary</h2><p>Inspect Midnight Coder's source and documented sandbox and approval surfaces.</p><a class="button primary" href="../">Explore Midnight Coder</a><a class="button" href="https://github.com/midnightcoderagent/Midnight-Coder">Review source</a></section>
+        </article>
+        <aside class="guide-nav" aria-label="On this page"><strong>On this page</strong><a href="#model">Threat model</a><a href="#controls">Security controls</a><a href="#practice">Safer practices</a><a href="#integration">Integrations</a></aside>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="wrap site-footer-inner"><a href="../">Midnight Coder</a><a href="../local-llm-inference/">Local inference</a><a href="../integrations/">Integrations</a></div></footer>
+  </body>
+</html>

@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1">
+    <meta name="description" content="A practical glossary of AI coding agent, LLM, inference, token, context window, Ollama, sandbox, tool calling, SDK, and model provider terms.">
+    <meta name="author" content="Midnight Coder">
+    <meta name="theme-color" content="#0969da">
+    <link rel="canonical" href="https://midnightcoderagent.github.io/ai-coding-glossary/">
+    <meta property="og:type" content="article">
+    <meta property="og:site_name" content="Midnight Coder">
+    <meta property="og:title" content="AI Coding and LLM Glossary | Midnight Coder">
+    <meta property="og:description" content="Clear definitions for AI agents, LLM inference, context, tokens, tool calling, local models, and coding-agent infrastructure.">
+    <meta property="og:url" content="https://midnightcoderagent.github.io/ai-coding-glossary/">
+    <meta property="og:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="AI Coding and LLM Glossary | Midnight Coder">
+    <meta name="twitter:description" content="Definitions for the language used around local LLMs and AI coding agents.">
+    <meta name="twitter:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <title>AI Coding and LLM Glossary | Midnight Coder</title>
+    <link rel="stylesheet" href="../styles.css">
+    <script type="application/ld+json">
+      { "@context": "https://schema.org", "@graph": [
+        { "@type": "DefinedTermSet", "name": "AI Coding and LLM Glossary", "url": "https://midnightcoderagent.github.io/ai-coding-glossary/", "description": "Definitions for AI coding agents, local LLM inference, context management, tools, and runtime security." },
+        { "@type": "BreadcrumbList", "itemListElement": [ { "@type": "ListItem", "position": 1, "name": "Midnight Coder", "item": "https://midnightcoderagent.github.io/" }, { "@type": "ListItem", "position": 2, "name": "AI coding glossary", "item": "https://midnightcoderagent.github.io/ai-coding-glossary/" } ] }
+      ] }
+    </script>
+  </head>
+  <body>
+    <header class="topbar"><div class="wrap topbar-inner"><a class="brand" href="../"><span class="brand-mark">MC</span><span><strong>midnight-coder</strong><small>local coding agent</small></span></a><nav class="topnav" aria-label="Primary"><a href="../local-ai-coding-agent/">Local AI agent</a><a href="../local-llm-inference/">LLM inference</a><a href="../context-management/">Context</a><a href="../ai-coding-agent-security/">Security</a></nav></div></header>
+    <main class="guide-main wrap">
+      <nav class="breadcrumbs" aria-label="Breadcrumb"><a href="../">Home</a> / AI coding glossary</nav>
+      <header class="guide-hero">
+        <p class="eyebrow">AI, LLM, and agent terminology</p>
+        <h1>AI coding glossary</h1>
+        <p class="lede">Plain-language definitions for the technologies, controls, and infrastructure used by local AI coding agents.</p>
+        <div class="answer-box"><p><strong>AI coding systems combine an LLM, context, tools, and an agent runtime.</strong> Local inference, sandboxing, approvals, and persistent threads determine where the system runs, what it knows, and what it can do.</p></div>
+      </header>
+      <div class="guide-layout">
+        <article class="guide-copy">
+          <section class="guide-section" id="models">
+            <h2>AI models and inference</h2>
+            <dl class="glossary-list">
+              <dt>Artificial intelligence (AI)</dt><dd>Software techniques that perform tasks associated with reasoning, language, perception, prediction, or decision-making.</dd>
+              <dt>Large language model (LLM)</dt><dd>A neural model trained to process and generate token sequences. Coding LLMs are tuned or trained with source code and technical text.</dd>
+              <dt>Inference</dt><dd>The process of running a trained model to generate an output from an input. See <a href="../local-llm-inference/">local LLM inference</a>.</dd>
+              <dt>Local LLM</dt><dd>A language model whose inference runs on a computer or server controlled by the user instead of a third-party hosted endpoint.</dd>
+              <dt>Model provider</dt><dd>The service that exposes models to a client. It can be local, self-hosted, or remote.</dd>
+              <dt>Model endpoint</dt><dd>The network address used to reach a provider API, such as an Ollama server at <code>127.0.0.1:11434</code>.</dd>
+              <dt>OpenAI-compatible API</dt><dd>An API that follows commonly adopted OpenAI request and response shapes, often including a <code>/v1/models</code> route.</dd>
+              <dt>Ollama</dt><dd>A local model runtime and API. Midnight Coder can detect its models and send model-aware context settings.</dd>
+              <dt>Quantization</dt><dd>A reduction in model numerical precision that usually lowers memory use and can improve local inference speed, with a possible quality tradeoff.</dd>
+              <dt>RAM and VRAM</dt><dd>System and graphics memory used to load model weights, cache context, and perform inference.</dd>
+            </dl>
+          </section>
+          <section class="guide-section" id="context">
+            <h2>Tokens and context</h2>
+            <dl class="glossary-list">
+              <dt>Token</dt><dd>A unit of text processed by an LLM. A token can represent part of a word, punctuation, whitespace, or code.</dd>
+              <dt>Context window</dt><dd>The maximum token budget a model can consider during one request, including instructions, history, code, tool results, and generated output.</dd>
+              <dt>Prompt</dt><dd>The instructions and input supplied to a model. In an agent, the effective prompt also includes runtime instructions and retrieved workspace context.</dd>
+              <dt>Context compaction</dt><dd>The process of replacing older detailed history with a shorter representation to keep a conversation within its token limit.</dd>
+              <dt>Thread</dt><dd>A persistent conversation that groups related turns and can be resumed.</dd>
+              <dt>Turn</dt><dd>One cycle of user input, model reasoning, tool activity, and output within a thread.</dd>
+              <dt>Item</dt><dd>An atomic entry in agent history, such as a message, command execution, file change, or tool result.</dd>
+            </dl>
+          </section>
+          <section class="guide-section" id="agents">
+            <h2>Agents, tools, and security</h2>
+            <dl class="glossary-list">
+              <dt>AI coding agent</dt><dd>An AI system that can inspect a codebase, plan work, invoke tools, edit files, and validate results. Read <a href="../local-ai-coding-agent/">how a local coding agent works</a>.</dd>
+              <dt>Agentic loop</dt><dd>The repeated cycle in which a model selects an action, receives its result, updates its understanding, and chooses the next action.</dd>
+              <dt>Tool calling</dt><dd>A structured mechanism that lets a model request actions from the runtime, such as reading a file or running a test.</dd>
+              <dt>Workspace</dt><dd>The directory and project files placed within scope for an agent session.</dd>
+              <dt>Sandbox</dt><dd>An enforcement boundary that limits filesystem, process, or network capabilities. See <a href="../ai-coding-agent-security/">agent security and sandboxing</a>.</dd>
+              <dt>Approval</dt><dd>An explicit decision required before a sensitive tool action proceeds.</dd>
+              <dt>Local-first</dt><dd>An architecture that keeps the runtime and primary workflow on the user's machine. It does not by itself guarantee local model inference.</dd>
+            </dl>
+          </section>
+          <section class="guide-section" id="integration">
+            <h2>Integration terms</h2>
+            <dl class="glossary-list">
+              <dt>SDK</dt><dd>A software development kit that exposes agent capabilities through a programming-language API.</dd>
+              <dt>JSON-RPC</dt><dd>A structured request/response protocol over JSON used by the Midnight Coder app server.</dd>
+              <dt>App server</dt><dd>A long-running interface that exposes thread, turn, configuration, approval, and event APIs to rich clients.</dd>
+              <dt>Streaming</dt><dd>Delivery of model output and tool events as they happen instead of waiting for the entire turn to finish.</dd>
+              <dt>Structured output</dt><dd>Model output constrained to a supplied schema so application code can parse it reliably.</dd>
+            </dl>
+            <p>See the <a href="../integrations/">Midnight Coder integration guide</a> for the terminal, app server, Python, and TypeScript surfaces.</p>
+          </section>
+          <section class="conversion-box"><h2>See the terms in a working runtime</h2><p>Explore how Midnight Coder connects models, context, tools, and workspace controls.</p><a class="button primary" href="../">Explore Midnight Coder</a><a class="button" href="../install-midnight-coder/">Install</a></section>
+        </article>
+        <aside class="guide-nav" aria-label="On this page"><strong>Glossary sections</strong><a href="#models">Models and inference</a><a href="#context">Tokens and context</a><a href="#agents">Agents and security</a><a href="#integration">Integration terms</a></aside>
+      </div>
+    </main>
+    <footer class="site-footer"><div class="wrap site-footer-inner"><a href="../">Midnight Coder</a><a href="../local-llm-inference/">Local inference</a><a href="../context-management/">Context guide</a></div></footer>
+  </body>
+</html>
