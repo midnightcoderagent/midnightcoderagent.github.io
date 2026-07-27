@@ -1,14 +1,68 @@
-<!doctype html>
+<!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1">
     <meta
       name="description"
-      content="Midnight Coder is a local-first coding agent with explicit model control, bounded context, and precise workspace workflows."
-    />
-    <title>Midnight Coder</title>
-    <link rel="stylesheet" href="./styles.css" />
+      content="Midnight Coder is a local-first coding agent with explicit model control, sandboxing, bounded context, and terminal, app-server, and SDK workflows."
+    >
+    <meta name="author" content="Midnight Coder">
+    <meta name="theme-color" content="#0969da">
+    <link rel="canonical" href="https://midnightcoderagent.github.io/">
+    <link rel="preload" as="image" href="https://midnightcoderagent.github.io/assets/splash.png">
+    <meta property="og:type" content="website">
+    <meta property="og:site_name" content="Midnight Coder">
+    <meta property="og:title" content="Midnight Coder | Local-First Coding Agent">
+    <meta property="og:description" content="A local-first coding agent with explicit model selection, sandboxing, approvals, and bounded context.">
+    <meta property="og:url" content="https://midnightcoderagent.github.io/">
+    <meta property="og:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <meta property="og:image:width" content="1600">
+    <meta property="og:image:height" content="900">
+    <meta property="og:image:alt" content="Midnight Coder terminal interface preview">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:title" content="Midnight Coder | Local-First Coding Agent">
+    <meta name="twitter:description" content="A local-first coding agent with explicit model selection, sandboxing, approvals, and bounded context.">
+    <meta name="twitter:image" content="https://midnightcoderagent.github.io/assets/splash.png">
+    <meta name="twitter:image:alt" content="Midnight Coder terminal interface preview">
+    <title>Midnight Coder | Local-First Coding Agent</title>
+    <link rel="stylesheet" href="./styles.css">
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://midnightcoderagent.github.io/#organization",
+            "name": "Midnight Coder",
+            "url": "https://midnightcoderagent.github.io/",
+            "email": "midnightcoderagent@gmail.com",
+            "sameAs": ["https://github.com/midnightcoderagent/Midnight-Coder"]
+          },
+          {
+            "@type": "SoftwareApplication",
+            "@id": "https://midnightcoderagent.github.io/#software",
+            "name": "Midnight Coder",
+            "applicationCategory": "DeveloperApplication",
+            "operatingSystem": "Linux, macOS, Windows",
+            "description": "A local-first coding agent with explicit model selection, sandboxing, approvals, and bounded context.",
+            "url": "https://midnightcoderagent.github.io/",
+            "image": "https://midnightcoderagent.github.io/assets/splash.png",
+            "downloadUrl": "https://www.npmjs.com/package/midnight-coder",
+            "codeRepository": "https://github.com/midnightcoderagent/Midnight-Coder",
+            "author": { "@id": "https://midnightcoderagent.github.io/#organization" }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://midnightcoderagent.github.io/#website",
+            "name": "Midnight Coder",
+            "url": "https://midnightcoderagent.github.io/",
+            "publisher": { "@id": "https://midnightcoderagent.github.io/#organization" }
+          }
+        ]
+      }
+    </script>
   </head>
   <body>
     <header class="topbar">
@@ -59,7 +113,11 @@
               src="./assets/splash.png"
               alt="Midnight Coder terminal interface preview"
               loading="eager"
-            />
+              fetchpriority="high"
+              decoding="async"
+              width="1600"
+              height="900"
+            >
             <figcaption>
               The product ships with a terminal-first workflow and a structured runtime
               surface for richer clients.
@@ -179,7 +237,7 @@ Start a new chat to use the saved provider for the whole session.</code></pre>
 /compact</code></pre>
           </div>
 
-          <div class="timeline" aria-label="Context workflow">
+          <div class="timeline" role="group" aria-label="Context workflow">
             <div>
               <span>Thread</span>
               <strong>Persistent conversation container</strong>
