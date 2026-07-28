@@ -3,4 +3,3 @@ Allow: /
 
 Sitemap: https://midnightcoderagent.github.io/sitemap.xml
 Sitemap: https://midnightcoderagent.github.io/sitemap.txt
-Sitemap: https://midnightcoderagent.github.io/feed.xml
